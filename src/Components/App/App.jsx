@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchUsers, fetchPosts } from '../../Redux/Action/Actions'
+import { fetchPosts } from '../../Redux/Action/Actions'
 
 export const App = () => {
 
@@ -9,17 +9,10 @@ export const App = () => {
 
   useEffect(() => {
     dispatch(
-      fetchUsers
+      fetchPosts()
     )
   }, [])
 
-  useEffect(() => {
-    dispatch(
-      fetchPosts
-    )
-  }, [])
-
-  console.log(fetchPosts())
 
   return<>
     
