@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchPosts, fetchUsers } from '../../Redux/Action/Actions'
+import { Cards } from '../Cards/Cards'
 
 import 'bootstrap/dist/css/bootstrap.css'
 
@@ -23,7 +24,11 @@ export const App = () => {
   }, [])
 
   return<>
-    
+    <div className='container'>
+      <div className='row>'>
+        <Cards />
+      </div>
+    </div>
   </>
 
 }
