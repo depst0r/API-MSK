@@ -8,12 +8,12 @@ export const rootReducer = (state = initialState, action) => {
         case 'getPosts':
             return {
                 ...state,
-                posts: action.data
+                posts: action.payload
             }
         case 'getUsers':
             return {
                 ...state,
-                users: action.data
+                users: action.payload
             }
         default:
             return state
