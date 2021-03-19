@@ -22,7 +22,7 @@ export const Cards = () => {
 
     return<>
 { selector?.users?.map(res => ( 
-        <div className="row row-cols-1 row-cols-md-2 g-4">
+        <div className="row row-cols-1 row-cols-md-2 g-4" key={res.id}>
         <div className="col">
           <div className="card">
             <div className="card-body">
@@ -31,8 +31,7 @@ export const Cards = () => {
             >X</button>
               <h5 className="card-title">{res.name}</h5>
               <p className="card-text">{res.email}</p>
-              <button className="btn btn-outline-info"></button>
-              <button className="btn btn-outline-dark"></button>
+              <button className="btn btn-outline-info">Edit</button>
             </div>
           </div>
         </div>
