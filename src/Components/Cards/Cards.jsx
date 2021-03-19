@@ -61,7 +61,12 @@ export const Cards = () => {
            </Typography>
          </CardContent>
          <CardActions>
-           <Button size="small">Delet</Button>
+           <Button 
+           size="small"
+           onClick={() => dispatch(removeCard(res.id))}
+           >
+             Delet
+           </Button>
          </CardActions>
        </Card>
 ))}   
