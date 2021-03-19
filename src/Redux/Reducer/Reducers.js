@@ -22,6 +22,11 @@ export const rootReducer = (state = initialState, action) => {
                     users: state.users.filter(item => item.id !== action.payload)
                 }
             }
+        case 'addCards':
+            return {
+                ...state,
+                posts: state.posts.concat(action.payload)
+            }
         default:
             return state
     }
