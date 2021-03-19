@@ -23,12 +23,14 @@ export const removeCard = id => {
     }
 }
 
-export const addCards = card => {
+export const addCards = (title, body, userId) => {
     return dispatch => {
         fetch('https://jsonplaceholder.typicode.com/posts', {
                 method: 'POST',
                 body: JSON.stringify({
-                    title: card
+                    title,
+                    body,
+                    userId
                 }),
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
