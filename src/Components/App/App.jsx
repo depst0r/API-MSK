@@ -1,6 +1,7 @@
 import React from 'react'
 import { Cards } from '../Cards/Cards'
-import 'bootstrap/dist/css/bootstrap.css'
+import { AddCards } from '../AddCards/AddCards'
+
 
 
 export const App = () => {
@@ -8,6 +9,7 @@ export const App = () => {
   return<>
     <div className='container'>
       <div className='row>'>
+        <AddCards/>
         <Cards />
       </div>
     </div>
