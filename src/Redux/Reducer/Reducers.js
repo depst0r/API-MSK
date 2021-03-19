@@ -19,7 +19,7 @@ export const rootReducer = (state = initialState, action) => {
             {
                 return {
                     ...state,
-                    posts: state.posts.filter(item => item.id !== action.payload)
+                    users: state.users.filter(item => item.id !== action.payload)
                 }
             }
         default:

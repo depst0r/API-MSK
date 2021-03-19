@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchPosts, fetchUsers } from '../../Redux/Action/Actions'
+import { fetchPosts, fetchUsers, removeCard } from '../../Redux/Action/Actions'
 
 
 export const Cards = () => {
@@ -19,7 +19,6 @@ export const Cards = () => {
           fetchUsers()
         )
       }, [])
-console.log(selector?.users?.map(res => res.name))
 
     return<>
 { selector?.users?.map(res => ( 
@@ -27,7 +26,9 @@ console.log(selector?.users?.map(res => res.name))
         <div className="col">
           <div className="card">
             <div className="card-body">
-            <button className="btn btn-outline-danger">X</button>
+            <button className="btn btn-outline-danger"
+              onClick={() => dispatch(removeCard(res.id))}
+            >X</button>
               <h5 className="card-title">{res.name}</h5>
               <p className="card-text">{res.email}</p>
               <button className="btn btn-outline-info"></button>
