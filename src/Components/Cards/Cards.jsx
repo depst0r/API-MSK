@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { createLogger } from 'redux-logger'
 import { fetchPosts, fetchUsers } from '../../Redux/Action/Actions'
 
 

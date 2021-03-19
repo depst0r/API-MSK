@@ -13,3 +13,12 @@ export const fetchUsers = () => {
             .then(users => dispatch({ type: 'getUsers', payload: users }))
     }
 }
+
+export const removeCard = id => {
+    return dispatch => {
+        fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+            method: 'DELETE',
+        })
+        dispatch({ type: 'removePost', payload: id })
+    }
+}
