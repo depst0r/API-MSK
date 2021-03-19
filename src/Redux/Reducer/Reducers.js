@@ -1,6 +1,9 @@
+import { COMBINE_CARDS } from '../Action/ActionType'
+
 const initialState = {
     posts: null,
     users: null,
+    combineCards: null
 }
 
 export const rootReducer = (state = initialState, action) => {
@@ -26,6 +29,11 @@ export const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 posts: state.posts.concat(action.payload)
+            }
+        case COMBINE_CARDS:
+            return {
+                ...state,
+                combineCards: state.posts.concat(action.payload)
             }
         default:
             return state

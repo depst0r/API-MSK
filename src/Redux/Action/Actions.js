@@ -1,3 +1,5 @@
+import { ADD_CARDS, COMBINE_CARDS, GET_POSTS } from './ActionType'
+
 export const fetchPosts = () => {
     return dispatch => {
         fetch(`https://jsonplaceholder.typicode.com/posts/`)
@@ -36,6 +38,8 @@ export const addCards = (title, body, userId) => {
                     'Content-type': 'application/json; charset=UTF-8',
                 },
             }).then(newCard => newCard.json())
-            .then(newCard => dispatch({ type: 'addCards', payload: newCard }))
+            .then(newCard => dispatch({ type: ADD_CARDS, payload: newCard }))
     }
 }
+
+export const combineCards = arr => ({ type: COMBINE_CARDS, payload: arr })

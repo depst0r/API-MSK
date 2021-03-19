@@ -1,4 +1,5 @@
 import React from 'react'
+import Box from '@material-ui/core/Box';
 import { Cards } from '../Cards/Cards'
 import { AddCards } from '../AddCards/AddCards'
 
@@ -7,12 +8,10 @@ import { AddCards } from '../AddCards/AddCards'
 export const App = () => {
 
   return<>
-    <div className='container'>
-      <div className='row>'>
-        <AddCards/>
+    <Box>
+      <AddCards/>
         <Cards />
-      </div>
-    </div>
+    </Box>
   </>
 
 }
