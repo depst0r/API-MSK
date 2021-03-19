@@ -15,6 +15,13 @@ export const rootReducer = (state = initialState, action) => {
                 ...state,
                 users: action.payload
             }
+        case 'removePost':
+            {
+                return {
+                    ...state,
+                    posts: state.posts.filter(item => item.id !== action.payload)
+                }
+            }
         default:
             return state
     }
