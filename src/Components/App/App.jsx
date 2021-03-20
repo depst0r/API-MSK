@@ -8,7 +8,11 @@ import { AddCards } from '../AddCards/AddCards'
 export const App = () => {
 
   return<>
-    <Box>
+    <Box
+    alignContent="flex-start"
+    display="flex"
+    flexWrap="wrap"
+    >
       <AddCards/>
         <Cards />
     </Box>
