@@ -1,3 +1,4 @@
+import { bindActionCreators } from 'redux'
 import { 
     ADD_CARDS, 
     COMBINE_CARDS, 
@@ -8,7 +9,8 @@ import {
 const initialState = {
     posts: null,
     users: null,
-    combineCards: null
+    combineCards: null,
+    post: null
 }
 
 export const rootReducer = (state = initialState, action) => {
@@ -38,7 +40,7 @@ export const rootReducer = (state = initialState, action) => {
         case COMBINE_CARDS:
             return {
                 ...state,
-                combineCards: state?.posts?.concat(action.payload)
+                post: action.payload
             }
         default:
             return state
