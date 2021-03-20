@@ -27,7 +27,7 @@ export const rootReducer = (state = initialState, action) => {
             {
                 return {
                     ...state,
-                    users: state.users.filter(item => item.id !== action.payload)
+                    posts: state.posts.filter(item => item.id !== action.payload)
                 }
             }
         case ADD_CARDS:

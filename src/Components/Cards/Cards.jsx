@@ -42,21 +42,21 @@ export const Cards = () => {
         )
       }, [])
 
-      useEffect(() => {
-        const combinePosts = selector?.posts?.map(data => ({
-          ...data,
-          user: selector?.users?.find(user => data.userId === user.id)
-        }))
+      // useEffect(() => {
+      //   const combinePosts = selector?.posts?.map(data => ({
+      //     ...data,
+      //     user: selector?.users?.find(user => data.userId === user.id)
+      //   }))
 
-        return dispatch(
-          combineCards(
-            {
-              cards: combinePosts
-            }
-          )
-        )
-      }, [selector.posts, selector.users])
-console.log(selector?.combineCards?.user?.map(res => res))
+      //   return dispatch(
+      //     combineCards(
+      //       {
+      //         cards: combinePosts
+      //       }
+      //     )
+      //   )
+      // }, [selector.posts, selector.users])
+
     return<>
 { selector?.posts?.map(res => ( 
          <Card className={classes.root} variant="outlined" key={res.id} >
