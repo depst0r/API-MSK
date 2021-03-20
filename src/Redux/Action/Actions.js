@@ -1,4 +1,4 @@
-import { ADD_CARDS, COMBINE_CARDS, GET_POSTS, REMOVE_CARDS } from './ActionType'
+import { ADD_CARDS, COMBINE_CARDS, GET_POSTS, REMOVE_CARDS, GET_USERS } from './ActionType'
 
 export const fetchPosts = () => {
     return dispatch => {
@@ -12,7 +12,7 @@ export const fetchUsers = () => {
     return dispatch => {
         fetch('https://jsonplaceholder.typicode.com/users')
             .then(users => users.json())
-            .then(users => dispatch({ type: 'getUsers', payload: users }))
+            .then(users => dispatch({ type: GET_USERS, payload: users }))
     }
 }
 
@@ -22,6 +22,14 @@ export const removeCard = id => {
             method: 'DELETE',
         })
         dispatch({ type: REMOVE_CARDS, payload: id })
+    }
+}
+
+export const fetchComments = () => {
+    return dispatch => {
+        fetch(`https://jsonplaceholder.typicode.com/comments/`)
+            .then(res => res.json())
+            .then(res => dispatch({ type: 'getComments', data: res }))
     }
 }
 

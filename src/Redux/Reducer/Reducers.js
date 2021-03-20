@@ -1,4 +1,9 @@
-import { ADD_CARDS, COMBINE_CARDS, GET_POSTS, REMOVE_CARDS, GET_USERS } from '../Action/ActionType'
+import { 
+    ADD_CARDS, 
+    COMBINE_CARDS, 
+    GET_POSTS, 
+    REMOVE_CARDS, 
+    GET_USERS } from '../Action/ActionType'
 
 const initialState = {
     posts: null,
@@ -33,7 +38,7 @@ export const rootReducer = (state = initialState, action) => {
         case COMBINE_CARDS:
             return {
                 ...state,
-                combineCards: state.posts.concat(action.payload)
+                combineCards: state?.posts?.concat(action.payload)
             }
         default:
             return state

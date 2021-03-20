@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchPosts, fetchUsers, removeCard } from '../../Redux/Action/Actions'
+import { fetchPosts, fetchUsers, removeCard, combineCards } from '../../Redux/Action/Actions'
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -42,21 +42,39 @@ export const Cards = () => {
         )
       }, [])
 
+      useEffect(() => {
+        const combinePosts = selector?.posts?.map(data => ({
+          ...data,
+          user: selector?.users?.find(user => data.userId === user.id)
+        }))
+
+        return dispatch(
+          combineCards(
+            {
+              cards: combinePosts
+            }
+          )
+        )
+      }, [selector.posts, selector.users])
+console.log(selector?.combineCards?.user?.map(res => res))
     return<>
-{ selector?.users?.map(res => ( 
+{ selector?.posts?.map(res => ( 
          <Card className={classes.root} variant="outlined" key={res.id} >
          <CardContent>
            <Typography className={classes.id} color="textSecondary" gutterBottom>
               {res.id}
            </Typography>
            <Typography variant="h5" component="h2">
-             {res.name}
+             
            </Typography>
            <Typography className={classes.email} color="textSecondary">
-             {res.email}
+             {/* {res.email} */}
+           </Typography>
+           <Typography className={classes.email} color="textSecondary">
+           {res.title }
            </Typography>
            <Typography variant="body2" component="p">
-             
+             {res.body}
            </Typography>
          </CardContent>
          <CardActions>
