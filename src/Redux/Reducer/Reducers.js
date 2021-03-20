@@ -1,4 +1,4 @@
-import { COMBINE_CARDS } from '../Action/ActionType'
+import { ADD_CARDS, COMBINE_CARDS, GET_POSTS, REMOVE_CARDS, GET_USERS } from '../Action/ActionType'
 
 const initialState = {
     posts: null,
@@ -8,24 +8,24 @@ const initialState = {
 
 export const rootReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'getPosts':
+        case GET_POSTS:
             return {
                 ...state,
                 posts: action.payload
             }
-        case 'getUsers':
+        case GET_USERS:
             return {
                 ...state,
                 users: action.payload
             }
-        case 'removePost':
+        case REMOVE_CARDS:
             {
                 return {
                     ...state,
                     users: state.users.filter(item => item.id !== action.payload)
                 }
             }
-        case 'addCards':
+        case ADD_CARDS:
             return {
                 ...state,
                 posts: state.posts.concat(action.payload)

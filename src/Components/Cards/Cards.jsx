@@ -56,6 +56,7 @@ export const Cards = () => {
              {res.email}
            </Typography>
            <Typography variant="body2" component="p">
+             
            </Typography>
          </CardContent>
          <CardActions>
