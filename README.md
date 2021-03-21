@@ -1,3 +1,3 @@
 ## Use `jsonplaceholder`
 
- * use
+ * Use free API https://jsonplaceholder.typicode.com/
