@@ -9,8 +9,7 @@ import {
 const initialState = {
     posts: null,
     users: null,
-    combineCards: null,
-    post: null
+    combineCards: null
 }
 
 export const rootReducer = (state = initialState, action) => {
@@ -40,7 +39,7 @@ export const rootReducer = (state = initialState, action) => {
         case COMBINE_CARDS:
             return {
                 ...state,
-                post: action.payload
+                combineCards: action.payload
             }
         default:
             return state

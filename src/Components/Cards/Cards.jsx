@@ -57,7 +57,7 @@ export const Cards = () => {
         )
       }, [selector.posts, selector.users])
 
-      console.log(selector?.post.cards)
+      // console.log(selector?.post.cards)
 
     return<>
 { selector?.posts?.map(res => ( 

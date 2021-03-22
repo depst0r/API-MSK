@@ -1,11 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Box from '@material-ui/core/Box';
 import { Cards } from '../Cards/Cards'
 import { AddCards } from '../AddCards/AddCards'
+import { useSelector } from 'react-redux';
+import { Pagination } from '../Pagination/Pagination';
 
 
 
 export const App = () => {
+
+  const selector = useSelector(state => state)
+
+  const [currentPage, setCurrentPage] = useState(1)
+  const [postsPerPage, setPostsPerPage] = useState(5)
+
+  const indexOfLastPost = currentPage * postsPerPage
+  const indexOffFirstPost = indexOfLastPost - postsPerPage
+  const currentPosts = selector?.combineCards?.cards?.slice(indexOffFirstPost, indexOfLastPost)
+
+  const paginate = pageNumber => setPostsPerPage(pageNumber)
 
   return<>
     <Box
@@ -14,7 +27,12 @@ export const App = () => {
     flexWrap="wrap"
     >
       <AddCards/>
-        <Cards />
+        <Cards cards={currentPage}/>
+        <Pagination 
+          perPage={postsPerPage}
+          total={selector?.posts?.length}
+          paginate={paginate}
+        />
     </Box>
   </>
 
