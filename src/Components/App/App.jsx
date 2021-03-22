@@ -29,6 +29,9 @@ export const App = () => {
       <AddCards/>
         <Cards cards={currentPosts}/>
         <Pagination 
+          perPage={postsPerPage}
+          totalCards={selector?.cards?.length}
+          paginate={paginate}
         />
     </Box>
   </>
