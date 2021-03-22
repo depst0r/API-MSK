@@ -50,7 +50,7 @@ export const addCards = (title, body, userId) => {
     }
 }
 
-// export const combineCards = arr => ({ type: COMBINE_CARDS, payload: arr })
+export const combineCards = arr => ({ type: COMBINE_CARDS, payload: arr })
 
 // useEffect(() => {
 //     const combinePosts = selector?.posts?.map(post => ({
