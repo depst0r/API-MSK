@@ -12,7 +12,7 @@ export const App = () => {
   const selector = useSelector(state => state)
 
   const [currentPage, setCurrentPage] = useState(1)
-  const [postsPerPage, setPostsPerPage] = useState(5)
+  const [postsPerPage, setPostsPerPage] = useState(10)
 
   const indexOfLastPost = currentPage * postsPerPage
   const indexOffFirstPost = indexOfLastPost - postsPerPage
@@ -27,11 +27,8 @@ export const App = () => {
     flexWrap="wrap"
     >
       <AddCards/>
-        <Cards cards={currentPage}/>
+        <Cards cards={currentPosts}/>
         <Pagination 
-          perPage={postsPerPage}
-          total={selector?.posts?.length}
-          paginate={paginate}
         />
     </Box>
   </>

@@ -23,8 +23,8 @@ const useStyles = makeStyles({
 });
 
 
-export const Cards = () => {
-
+export const Cards = ({cards}) => {
+console.log('cards', cards)
   const classes = useStyles()
   
     const dispatch = useDispatch()
@@ -60,17 +60,17 @@ export const Cards = () => {
       // console.log(selector?.post.cards)
 
     return<>
-{ selector?.posts?.map(res => ( 
+{ cards?.map(res => ( 
          <Card className={classes.root} variant="outlined" key={res.id} >
          <CardContent>
            <Typography className={classes.id} color="textSecondary" gutterBottom>
               {res.id}
            </Typography>
            <Typography variant="h5" component="h2">
-             
+           {res.user?.name}
            </Typography>
            <Typography className={classes.email} color="textSecondary">
-             {/* {res.email} */}
+             {res.user?.email}
            </Typography>
            <Typography className={classes.email} color="textSecondary">
            {res.title }
