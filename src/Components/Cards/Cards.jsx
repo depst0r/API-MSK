@@ -57,7 +57,6 @@ console.log('cards', cards)
         )
       }, [selector.posts, selector.users])
 
-      // console.log(selector?.post.cards)
 
     return<>
 { cards?.map(res => ( 

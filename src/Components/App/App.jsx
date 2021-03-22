@@ -10,15 +10,18 @@ import { Pagination } from '../Pagination/Pagination';
 export const App = () => {
 
   const selector = useSelector(state => state)
+  console.log(selector)
 
   const [currentPage, setCurrentPage] = useState(1)
   const [postsPerPage, setPostsPerPage] = useState(10)
 
-  const indexOfLastPost = currentPage * postsPerPage
-  const indexOffFirstPost = indexOfLastPost - postsPerPage
-  const currentPosts = selector?.combineCards?.cards?.slice(indexOffFirstPost, indexOfLastPost)
+  const indexOffLastPost = currentPage * postsPerPage
+  const indexOffFirstPost = indexOffLastPost - postsPerPage
+  const currentPosts = selector?.combineCards?.cards?.slice(indexOffFirstPost, indexOffLastPost)
 
-  const paginate = pageNumber => setPostsPerPage(pageNumber)
+  const paginate = pageNumber => setCurrentPage(pageNumber)
+
+console.log(selector?.combineCards?.cards.length)
 
   return<>
     <Box
@@ -29,8 +32,8 @@ export const App = () => {
       <AddCards/>
         <Cards cards={currentPosts}/>
         <Pagination 
-          perPage={postsPerPage}
-          totalCards={selector?.cards?.length}
+          postsPerPage={postsPerPage}
+          totalCards={selector?.combineCards?.cards.length}
           paginate={paginate}
         />
     </Box>
