@@ -2,3 +2,4 @@
 
  * [Use free API](https://jsonplaceholder.typicode.com/)
 jsonplaceholder
+ * Display posts
