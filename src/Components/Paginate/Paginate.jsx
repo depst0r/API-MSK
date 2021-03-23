@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 export const Paginate = ({ postsPerPage, totalCards, paginate}) => {
 
   const pageNumbers = []
@@ -8,13 +9,11 @@ export const Paginate = ({ postsPerPage, totalCards, paginate}) => {
         pageNumbers.push(i)
     }
 
-   
 
     return<>
-    <div>
     {pageNumbers?.map(res => (
             <span onClick={() => paginate(res)}>{res}</span>
         ))}
-    </div>
+
     </>
 }
