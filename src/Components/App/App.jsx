@@ -3,7 +3,7 @@ import Box from '@material-ui/core/Box';
 import { Cards } from '../Cards/Cards'
 import { AddCards } from '../AddCards/AddCards'
 import { useSelector } from 'react-redux';
-import { Pagination } from '../Pagination/Pagination';
+import { Paginate } from '../Paginate/Paginate';
 
 
 
@@ -21,7 +21,6 @@ export const App = () => {
 
   const paginate = pageNumber => setCurrentPage(pageNumber)
 
-console.log(selector?.combineCards?.cards.length)
 
   return<>
     <Box
@@ -31,9 +30,9 @@ console.log(selector?.combineCards?.cards.length)
     >
       <AddCards/>
         <Cards cards={currentPosts}/>
-        <Pagination 
+        <Paginate 
           postsPerPage={postsPerPage}
-          totalCards={selector?.combineCards?.cards.length}
+          totalCards={selector?.combineCards?.cards?.length}
           paginate={paginate}
         />
     </Box>
