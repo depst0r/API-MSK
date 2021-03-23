@@ -9,18 +9,33 @@ import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import { useDispatch, useSelector } from 'react-redux'
 import { Input } from '@material-ui/core'
+import InputLabel from '@material-ui/core/InputLabel'
+import FormControl from '@material-ui/core/FormControl'
 import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'
 import { addCards } from '../../Redux/Action/Actions'
 
 const useStyles = makeStyles(theme => ({
-    button: {
+    formControl: {
       margin: theme.spacing(1),
-      borderRadius: 50,
-    }
+      minWidth: 120,
+    },
+    selectEmpty: {
+      marginTop: theme.spacing(2),
+    },
+    button: {
+        margin: theme.spacing(1),
+        borderRadius: 50,
+      }
   }));
 
 export const AddCards = () => {
+
+    const [age, setAge] = React.useState('');
+
+    const handleChange = (event) => {
+        setAge(event.target.value);
+      };
 
     const dispatch = useDispatch()
     const selector = useSelector(state => state)
@@ -77,6 +92,19 @@ export const AddCards = () => {
             Save
           </Button>
         </DialogActions>
+        <FormControl className={classes.formControl}>
+        <InputLabel id="demo-simple-select-label">Age</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={age}
+          onChange={handleChange}
+        >
+          <MenuItem value={10}>Ten</MenuItem>
+          <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
+        </Select>
+      </FormControl>
       </Dialog>
       </div>
     )
