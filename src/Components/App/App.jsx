@@ -23,12 +23,12 @@ export const App = () => {
 
 
   return<>
+  <AddCards/>
     <Box
     alignContent="flex-start"
     display="flex"
     flexWrap="wrap"
     >
-      <AddCards/>
         <Cards cards={currentPosts}/>
     </Box>
         <Box display="flex" justifyContent="center" m={1} p={1} bgcolor="background.paper">
