@@ -33,8 +33,8 @@ export const AddCards = () => {
 
     const [age, setAge] = React.useState('');
 
-    const handleChange = (event) => {
-        setAge(event.target.value);
+    const handleChange = e => {
+        setSelect(e.target.value)
       };
 
     const dispatch = useDispatch()
@@ -93,16 +93,21 @@ export const AddCards = () => {
           </Button>
         </DialogActions>
         <FormControl className={classes.formControl}>
-        <InputLabel id="demo-simple-select-label">Age</InputLabel>
+        <InputLabel id="demo-simple-select-label">User Name</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age}
+          value={select}
           onChange={handleChange}
         >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+            {selector?.users?.map(user => (
+                <MenuItem 
+                value={user.name} 
+                key={user.id}
+                >
+                    {user?.name}
+                </MenuItem> 
+            ))}
         </Select>
       </FormControl>
       </Dialog>
