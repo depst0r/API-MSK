@@ -8,6 +8,8 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import { useDispatch, useSelector } from 'react-redux'
+import { addCards } from '../../Redux/Action/Actions'
 
 const useStyles = makeStyles(theme => ({
     button: {
@@ -44,7 +46,7 @@ export const AddCards = () => {
           Add Card
         </Button>
         <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+        <DialogTitle id="form-dialog-title">Create new card</DialogTitle>
         <DialogContent>
           <DialogContentText>
             To subscribe to this website, please enter your email address here. We will send updates
@@ -54,17 +56,17 @@ export const AddCards = () => {
             autoFocus
             margin="dense"
             id="name"
-            label="Email Address"
+            label="Title"
             type="email"
             fullWidth
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose} color="secondry">
             Cancel
           </Button>
           <Button onClick={handleClose} color="primary">
-            Subscribe
+            Save
           </Button>
         </DialogActions>
       </Dialog>

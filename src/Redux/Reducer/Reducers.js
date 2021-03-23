@@ -1,4 +1,3 @@
-import { bindActionCreators } from 'redux'
 import { 
     ADD_CARDS, 
     COMBINE_CARDS, 
