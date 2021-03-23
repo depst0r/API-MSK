@@ -71,7 +71,24 @@ export const AddCards = () => {
         <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Create new card</DialogTitle>
         <DialogContent>
-
+        <FormControl className={classes.formControl}>
+        <InputLabel id="demo-simple-select-label">User Name</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={select}
+          onChange={handleChange}
+        >
+            {selector?.users?.map(user => (
+                <MenuItem 
+                value={user.name} 
+                key={user.id}
+                >
+                    {user?.name}
+                </MenuItem> 
+            ))}
+        </Select>
+      </FormControl>
           <DialogContentText>
             To subscribe to this website, please enter your email address here. We will send updates
             occasionally.
@@ -92,24 +109,6 @@ export const AddCards = () => {
             Save
           </Button>
         </DialogActions>
-        <FormControl className={classes.formControl}>
-        <InputLabel id="demo-simple-select-label">User Name</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={select}
-          onChange={handleChange}
-        >
-            {selector?.users?.map(user => (
-                <MenuItem 
-                value={user.name} 
-                key={user.id}
-                >
-                    {user?.name}
-                </MenuItem> 
-            ))}
-        </Select>
-      </FormControl>
       </Dialog>
       </div>
     )
