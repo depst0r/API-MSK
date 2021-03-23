@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Button from '@material-ui/core/Button';
 
 export const Paginate = ({ postsPerPage, totalCards, paginate}) => {
 
@@ -12,7 +12,7 @@ export const Paginate = ({ postsPerPage, totalCards, paginate}) => {
 
     return<>
     {pageNumbers?.map(res => (
-            <span onClick={() => paginate(res)}>{res}</span>
+        <Button onClick={() => paginate(res)} color="primary">{res}</Button>
         ))}
 
     </>
