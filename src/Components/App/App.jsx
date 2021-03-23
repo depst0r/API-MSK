@@ -30,12 +30,14 @@ export const App = () => {
     >
       <AddCards/>
         <Cards cards={currentPosts}/>
+    </Box>
+        <Box display="flex" justifyContent="center" m={1} p={1} bgcolor="background.paper">
         <Paginate 
           postsPerPage={postsPerPage}
           totalCards={selector?.combineCards?.cards?.length}
           paginate={paginate}
         />
-    </Box>
+      </Box>
   </>
 
 }
