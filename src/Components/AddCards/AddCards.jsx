@@ -2,13 +2,14 @@ import React, {useState} from 'react'
 import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core/styles'
 import ListIcon from '@material-ui/icons/List'
-import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { useDispatch, useSelector } from 'react-redux'
+import { Input } from '@material-ui/core';
+import Select from '@material-ui/core/Select';
 import { addCards } from '../../Redux/Action/Actions'
 
 const useStyles = makeStyles(theme => ({
@@ -20,6 +21,11 @@ const useStyles = makeStyles(theme => ({
 
 export const AddCards = () => {
 
+    const dispatch = useDispatch()
+    const selector = useSelector(state => state)
+
+    const [title, setTitle] = useState()
+    const [body, setBody] = useState()
     const [open, setOpen] = useState(false)
 
     const classes = useStyles()
@@ -52,12 +58,11 @@ export const AddCards = () => {
             To subscribe to this website, please enter your email address here. We will send updates
             occasionally.
           </DialogContentText>
-          <TextField
+          <Input
             autoFocus
             margin="dense"
             id="name"
             label="Title"
-            type="email"
             fullWidth
           />
         </DialogContent>
