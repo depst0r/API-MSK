@@ -39,7 +39,7 @@ export const fetchComments = () => {
     }
 }
 
-export const createCards = (title, body) => {
+export const createCards = ({ title, body }) => {
     return dispatch => {
         fetch('https://jsonplaceholder.typicode.com/posts', {
                 method: 'POST',

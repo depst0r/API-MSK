@@ -34,7 +34,8 @@ export const rootReducer = (state = initialState, action) => {
         case CREATE_CARDS:
             return {
                 ...state,
-                posts: state.posts.concat(action.payload),
+                // posts: state.posts.concat(action.payload),
+                posts: [...state.posts, action.payload]
             }
         case COMBINE_CARDS:
             return {
