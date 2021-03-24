@@ -61,18 +61,6 @@ export const AddCards = () => {
     setBody(e.target.body)
   }
 
-  const postDataCard = () => {
-    if (title && body !== '') {
-      return dispatch(
-        createCards({
-          user: select,
-          title,
-          body,
-        })
-      )
-    }
-  }
-
   return (
     <div>
       <Button
@@ -86,54 +74,54 @@ export const AddCards = () => {
         Add Card
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Create new card</DialogTitle>
-        <DialogContent>
-          <FormControl className={classes.formControl}>
-            <InputLabel id="simple-select-label">User Name</InputLabel>
-            <Select
-              labelId="simple-select-label"
-              id="demo-simple-select"
-              value={select}
-              onChange={handleChangeSelect}
-            >
-              {selector?.users?.map(user => (
-                <MenuItem value={user.name} key={user.id}>
-                  {user?.name}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-          <DialogContentText>
-            <InputLabel id="title">Title</InputLabel>
+        <form>
+          <DialogTitle id="form-dialog-title">Create new card</DialogTitle>
+          <DialogContent>
+            <FormControl className={classes.formControl}>
+              <InputLabel id="simple-select-label">User Name</InputLabel>
+              <Select
+                labelId="simple-select-label"
+                id="demo-simple-select"
+                value={select}
+                onChange={handleChangeSelect}
+              >
+                {selector?.users?.map(user => (
+                  <MenuItem value={user.name} key={user.id}>
+                    {user?.name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            <DialogContentText>
+              <InputLabel id="title">Title</InputLabel>
+              <Input
+                autoFocus
+                margin="dense"
+                id="title"
+                label="title"
+                fullWidth
+                value={title}
+                onChange={handleChangeTitle}
+              />
+            </DialogContentText>
+            <InputLabel id="body">Body</InputLabel>
             <Input
               autoFocus
               margin="dense"
-              id="title"
-              label="title"
+              id="body"
+              label="body"
               fullWidth
-              value={title}
-              onChange={handleChangeTitle}
+              value={body}
+              onChange={handleChangeBody}
             />
-          </DialogContentText>
-          <InputLabel id="body">Body</InputLabel>
-          <Input
-            autoFocus
-            margin="dense"
-            id="body"
-            label="body"
-            fullWidth
-            value={body}
-            onChange={handleChangeBody}
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="secondry">
-            Cancel
-          </Button>
-          <Button onClick={postDataCard} color="primary">
-            Save
-          </Button>
-        </DialogActions>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose} color="secondry">
+              Cancel
+            </Button>
+            <Button color="primary">Save</Button>
+          </DialogActions>
+        </form>
       </Dialog>
     </div>
   )
