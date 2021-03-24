@@ -32,10 +32,6 @@ const useStyles = makeStyles(theme => ({
 
 export const AddCards = () => {
 
-    const handleChange = e => {
-        setSelect(e.target.value)
-      };
-
     const dispatch = useDispatch()
     const selector = useSelector(state => state)
 
@@ -48,12 +44,23 @@ export const AddCards = () => {
 
     const handleClickOpen = () => {
         setOpen(true)
-      };
+      }
     
       const handleClose = () => {
         setOpen(false)
       }
 
+      const handleChangeSelect = e => {
+        setSelect(e.target.value)
+      }
+
+      const handleChangeTitle = e => {
+        setTitle(e.target.value)
+      }
+
+      const handleChangeBody = e => {
+        setBody(e.target.body)
+      }
 
     return (
       <div>
@@ -76,7 +83,7 @@ export const AddCards = () => {
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={select}
-          onChange={handleChange}
+          onChange={handleChangeSelect}
         >
             {selector?.users?.map(user => (
                 <MenuItem 
@@ -96,6 +103,8 @@ export const AddCards = () => {
             id="title"
             label="title"
             fullWidth
+            value={title}
+            onChange={handleChangeTitle}
           />
           </DialogContentText>
           <InputLabel id="body">Body</InputLabel>
@@ -105,6 +114,8 @@ export const AddCards = () => {
             id="body"
             label="body"
             fullWidth
+            value={body}
+            onChange={handleChangeBody}
           />
         </DialogContent>
         <DialogActions>
