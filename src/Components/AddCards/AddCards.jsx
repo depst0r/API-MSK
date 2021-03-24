@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
         margin: theme.spacing(1),
         borderRadius: 50,
       }
-  }));
+  }))
 
 export const AddCards = () => {
 
