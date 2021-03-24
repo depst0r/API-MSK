@@ -1,5 +1,5 @@
 import {
-    ADD_CARDS,
+    CREATE_CARDS,
     COMBINE_CARDS,
     GET_POSTS,
     REMOVE_CARDS,
@@ -7,7 +7,7 @@ import {
 } from './ActionType'
 
 export const fetchPosts = () => {
-    return (dispatch) => {
+    return dispatch => {
         fetch(`https://jsonplaceholder.typicode.com/posts/`)
             .then((posts) => posts.json())
             .then((posts) => dispatch({ type: GET_POSTS, payload: posts }))
@@ -15,7 +15,7 @@ export const fetchPosts = () => {
 }
 
 export const fetchUsers = () => {
-    return (dispatch) => {
+    return dispatch => {
         fetch('https://jsonplaceholder.typicode.com/users')
             .then((users) => users.json())
             .then((users) => dispatch({ type: GET_USERS, payload: users }))
@@ -39,7 +39,7 @@ export const fetchComments = () => {
     }
 }
 
-export const addCards = (title, body) => {
+export const createCards = (title, body) => {
     return dispatch => {
         fetch('https://jsonplaceholder.typicode.com/posts', {
                 method: 'POST',
@@ -52,7 +52,7 @@ export const addCards = (title, body) => {
                 },
             })
             .then(newCard => newCard.json())
-            .then(newCard => dispatch({ type: ADD_CARDS, payload: newCard }))
+            .then(newCard => dispatch({ type: CREATE_CARDS, payload: newCard }))
     }
 }
 

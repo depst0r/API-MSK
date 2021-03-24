@@ -1,5 +1,5 @@
 import {
-    ADD_CARDS,
+    CREATE_CARDS,
     COMBINE_CARDS,
     GET_POSTS,
     REMOVE_CARDS,
@@ -28,10 +28,10 @@ export const rootReducer = (state = initialState, action) => {
             {
                 return {
                     ...state,
-                    posts: state.posts.filter((item) => item.id !== action.payload),
+                    posts: state.posts.filter(item => item.id !== action.payload),
                 }
             }
-        case ADD_CARDS:
+        case CREATE_CARDS:
             return {
                 ...state,
                 posts: state.posts.concat(action.payload),

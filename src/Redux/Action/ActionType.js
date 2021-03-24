@@ -1,5 +1,5 @@
 export const COMBINE_CARDS = 'COMBINE_CARDS'
-export const ADD_CARDS = 'ADD_CARDS'
+export const CREATE_CARDS = 'CREATE_CARDS'
 export const GET_POSTS = 'GET_POSTS'
 export const REMOVE_CARDS = 'REMOVE_CARDS'
 export const GET_USERS = 'GET_USERS'

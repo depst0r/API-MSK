@@ -13,7 +13,7 @@ import InputLabel from '@material-ui/core/InputLabel'
 import FormControl from '@material-ui/core/FormControl'
 import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'
-import { addCards } from '../../Redux/Action/Actions'
+import { createCards } from '../../Redux/Action/Actions'
 
 const useStyles = makeStyles(theme => ({
   formControl: {
@@ -61,6 +61,18 @@ export const AddCards = () => {
     setBody(e.target.body)
   }
 
+  const postDataCard = () => {
+    if (title && body !== '') {
+      return dispatch(
+        createCards({
+          user: select,
+          title,
+          body,
+        })
+      )
+    }
+  }
+
   return (
     <div>
       <Button
@@ -77,9 +89,9 @@ export const AddCards = () => {
         <DialogTitle id="form-dialog-title">Create new card</DialogTitle>
         <DialogContent>
           <FormControl className={classes.formControl}>
-            <InputLabel id="demo-simple-select-label">User Name</InputLabel>
+            <InputLabel id="simple-select-label">User Name</InputLabel>
             <Select
-              labelId="demo-simple-select-label"
+              labelId="simple-select-label"
               id="demo-simple-select"
               value={select}
               onChange={handleChangeSelect}
@@ -118,7 +130,7 @@ export const AddCards = () => {
           <Button onClick={handleClose} color="secondry">
             Cancel
           </Button>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={postDataCard} color="primary">
             Save
           </Button>
         </DialogActions>
