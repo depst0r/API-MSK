@@ -19,6 +19,7 @@ const useStyles = makeStyles(theme => ({
     formControl: {
       margin: theme.spacing(1),
       minWidth: 120,
+      width: 500
     },
     selectEmpty: {
       marginTop: theme.spacing(2),
@@ -88,14 +89,21 @@ export const AddCards = () => {
         </Select>
       </FormControl>
           <DialogContentText>
-            To subscribe to this website, please enter your email address here. We will send updates
-            occasionally.
-          </DialogContentText>
+          <InputLabel id="title">Title</InputLabel>
           <Input
             autoFocus
             margin="dense"
-            id="name"
-            label="Title"
+            id="title"
+            label="title"
+            fullWidth
+          />
+          </DialogContentText>
+          <InputLabel id="body">Body</InputLabel>
+          <Input
+            autoFocus
+            margin="dense"
+            id="body"
+            label="body"
             fullWidth
           />
         </DialogContent>
