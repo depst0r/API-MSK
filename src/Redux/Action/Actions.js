@@ -1,22 +1,28 @@
-import { ADD_CARDS, COMBINE_CARDS, GET_POSTS, REMOVE_CARDS, GET_USERS } from './ActionType'
+import {
+    ADD_CARDS,
+    COMBINE_CARDS,
+    GET_POSTS,
+    REMOVE_CARDS,
+    GET_USERS,
+} from './ActionType'
 
 export const fetchPosts = () => {
-    return dispatch => {
+    return (dispatch) => {
         fetch(`https://jsonplaceholder.typicode.com/posts/`)
-            .then(posts => posts.json())
-            .then(posts => dispatch({ type: GET_POSTS, payload: posts }))
+            .then((posts) => posts.json())
+            .then((posts) => dispatch({ type: GET_POSTS, payload: posts }))
     }
 }
 
 export const fetchUsers = () => {
-    return dispatch => {
+    return (dispatch) => {
         fetch('https://jsonplaceholder.typicode.com/users')
-            .then(users => users.json())
-            .then(users => dispatch({ type: GET_USERS, payload: users }))
+            .then((users) => users.json())
+            .then((users) => dispatch({ type: GET_USERS, payload: users }))
     }
 }
 
-export const removeCard = id => {
+export const removeCard = (id) => {
     return dispatch => {
         fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
             method: 'DELETE',
@@ -28,24 +34,24 @@ export const removeCard = id => {
 export const fetchComments = () => {
     return dispatch => {
         fetch(`https://jsonplaceholder.typicode.com/comments/`)
-            .then(res => res.json())
-            .then(res => dispatch({ type: 'getComments', data: res }))
+            .then((res) => res.json())
+            .then((res) => dispatch({ type: 'getComments', data: res }))
     }
 }
 
-export const addCards = (title, body, userId) => {
+export const addCards = (title, body) => {
     return dispatch => {
         fetch('https://jsonplaceholder.typicode.com/posts', {
                 method: 'POST',
                 body: JSON.stringify({
                     title,
                     body,
-                    userId
                 }),
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
                 },
-            }).then(newCard => newCard.json())
+            })
+            .then(newCard => newCard.json())
             .then(newCard => dispatch({ type: ADD_CARDS, payload: newCard }))
     }
 }

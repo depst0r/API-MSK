@@ -15,7 +15,7 @@ import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'
 import { addCards } from '../../Redux/Action/Actions'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 
 export const AddCards = () => {
   const dispatch = useDispatch()
-  const selector = useSelector((state) => state)
+  const selector = useSelector(state => state)
 
   const [select, setSelect] = useState(null)
   const [title, setTitle] = useState('')
@@ -49,15 +49,15 @@ export const AddCards = () => {
     setOpen(false)
   }
 
-  const handleChangeSelect = (e) => {
+  const handleChangeSelect = e => {
     setSelect(e.target.value)
   }
 
-  const handleChangeTitle = (e) => {
+  const handleChangeTitle = e => {
     setTitle(e.target.value)
   }
 
-  const handleChangeBody = (e) => {
+  const handleChangeBody = e => {
     setBody(e.target.body)
   }
 
@@ -73,11 +73,7 @@ export const AddCards = () => {
       >
         Add Card
       </Button>
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="form-dialog-title"
-      >
+      <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Create new card</DialogTitle>
         <DialogContent>
           <FormControl className={classes.formControl}>
@@ -88,7 +84,7 @@ export const AddCards = () => {
               value={select}
               onChange={handleChangeSelect}
             >
-              {selector?.users?.map((user) => (
+              {selector?.users?.map(user => (
                 <MenuItem value={user.name} key={user.id}>
                   {user?.name}
                 </MenuItem>

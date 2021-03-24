@@ -1,14 +1,15 @@
-import { 
-    ADD_CARDS, 
-    COMBINE_CARDS, 
-    GET_POSTS, 
-    REMOVE_CARDS, 
-    GET_USERS } from '../Action/ActionType'
+import {
+    ADD_CARDS,
+    COMBINE_CARDS,
+    GET_POSTS,
+    REMOVE_CARDS,
+    GET_USERS,
+} from '../Action/ActionType'
 
 const initialState = {
     posts: null,
     users: null,
-    combineCards: null
+    combineCards: null,
 }
 
 export const rootReducer = (state = initialState, action) => {
@@ -16,29 +17,29 @@ export const rootReducer = (state = initialState, action) => {
         case GET_POSTS:
             return {
                 ...state,
-                posts: action.payload
+                posts: action.payload,
             }
         case GET_USERS:
             return {
                 ...state,
-                users: action.payload
+                users: action.payload,
             }
         case REMOVE_CARDS:
             {
                 return {
                     ...state,
-                    posts: state.posts.filter(item => item.id !== action.payload)
+                    posts: state.posts.filter((item) => item.id !== action.payload),
                 }
             }
         case ADD_CARDS:
             return {
                 ...state,
-                posts: state.posts.concat(action.payload)
+                posts: state.posts.concat(action.payload),
             }
         case COMBINE_CARDS:
             return {
                 ...state,
-                combineCards: action.payload
+                combineCards: action.payload,
             }
         default:
             return state
