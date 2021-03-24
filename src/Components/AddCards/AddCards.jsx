@@ -31,8 +31,6 @@ const useStyles = makeStyles(theme => ({
 
 export const AddCards = () => {
 
-    const [age, setAge] = React.useState('');
-
     const handleChange = e => {
         setSelect(e.target.value)
       };
