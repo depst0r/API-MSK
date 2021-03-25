@@ -58,7 +58,7 @@ export const AddCards = () => {
   }
 
   const handleChangeBody = e => {
-    setBody(e.target.body)
+    setBody(e.target.value)
   }
 
   const onSubmit = () => {
