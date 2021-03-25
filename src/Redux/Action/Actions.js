@@ -4,6 +4,7 @@ import {
     GET_POSTS,
     REMOVE_CARDS,
     GET_USERS,
+    UPDATE_CARDS
 } from './ActionType'
 
 export const fetchPosts = () => {
@@ -54,6 +55,24 @@ export const createCards = ({ title, body, userId }) => {
             })
             .then(newCard => newCard.json())
             .then(newCard => dispatch({ type: CREATE_CARDS, payload: newCard }))
+    }
+}
+
+export const updateCards = ({ title, body, userId }) => {
+    return dispatch => {
+        fetch('https://jsonplaceholder.typicode.com/posts/1', {
+                method: 'PUT',
+                body: JSON.stringify({
+                    title,
+                    body,
+                    userId
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+            .then(update => update.json())
+            .then(update => dispatch({ type: UPDATE_CARDS, payload: update }))
     }
 }
 
