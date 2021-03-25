@@ -64,8 +64,8 @@ export const AddCards = () => {
   const onSubmit = () => {
     dispatch(
       createCards({
-        title: title,
-        body: body,
+        title,
+        body,
       })
     )
   }
