@@ -74,6 +74,9 @@ export const Cards = ({ cards }) => {
             <Button size="small" color="secondary" onClick={() => dispatch(removeCard(res.id))}>
               Delet
             </Button>
+            <Button size="small" color="primary">
+              EDIT
+            </Button>
           </CardActions>
         </Card>
       ))}
