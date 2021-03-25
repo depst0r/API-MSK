@@ -34,7 +34,7 @@ export const AddCards = () => {
   const dispatch = useDispatch()
   const selector = useSelector(state => state)
 
-  const [select, setSelect] = useState(null)
+  const [select, setSelect] = useState('')
   const [title, setTitle] = useState('')
   const [body, setBody] = useState('')
   const [open, setOpen] = useState(false)
@@ -61,6 +61,15 @@ export const AddCards = () => {
     setBody(e.target.body)
   }
 
+  const onSubmit = () => {
+    dispatch(
+      createCards({
+        title: title,
+        body: body,
+      })
+    )
+  }
+
   return (
     <div>
       <Button
@@ -74,54 +83,54 @@ export const AddCards = () => {
         Add Card
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <form>
-          <DialogTitle id="form-dialog-title">Create new card</DialogTitle>
-          <DialogContent>
-            <FormControl className={classes.formControl}>
-              <InputLabel id="simple-select-label">User Name</InputLabel>
-              <Select
-                labelId="simple-select-label"
-                id="demo-simple-select"
-                value={select}
-                onChange={handleChangeSelect}
-              >
-                {selector?.users?.map(user => (
-                  <MenuItem value={user.name} key={user.id}>
-                    {user?.name}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-            <DialogContentText>
-              <InputLabel id="title">Title</InputLabel>
-              <Input
-                autoFocus
-                margin="dense"
-                id="title"
-                label="title"
-                fullWidth
-                value={title}
-                onChange={handleChangeTitle}
-              />
-            </DialogContentText>
-            <InputLabel id="body">Body</InputLabel>
+        <DialogTitle id="form-dialog-title">Create new card</DialogTitle>
+        <DialogContent>
+          <FormControl className={classes.formControl}>
+            <InputLabel id="simple-select-label">User Name</InputLabel>
+            <Select
+              labelId="simple-select-label"
+              id="demo-simple-select"
+              value={select}
+              onChange={handleChangeSelect}
+            >
+              {selector?.users?.map(user => (
+                <MenuItem value={user.name} key={user.id}>
+                  {user?.name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          <DialogContentText>
+            <InputLabel id="title">Title</InputLabel>
             <Input
               autoFocus
               margin="dense"
-              id="body"
-              label="body"
+              id="title"
+              label="title"
               fullWidth
-              value={body}
-              onChange={handleChangeBody}
+              value={title}
+              onChange={handleChangeTitle}
             />
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleClose} color="secondry">
-              Cancel
-            </Button>
-            <Button color="primary">Save</Button>
-          </DialogActions>
-        </form>
+          </DialogContentText>
+          <InputLabel id="body">Body</InputLabel>
+          <Input
+            autoFocus
+            margin="dense"
+            id="body"
+            label="body"
+            fullWidth
+            value={body}
+            onChange={handleChangeBody}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="secondry">
+            Cancel
+          </Button>
+          <Button color="primary" onClick={onSubmit}>
+            Save
+          </Button>
+        </DialogActions>
       </Dialog>
     </div>
   )
