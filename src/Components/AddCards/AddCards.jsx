@@ -13,7 +13,7 @@ import InputLabel from '@material-ui/core/InputLabel'
 import FormControl from '@material-ui/core/FormControl'
 import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'
-import { FormControl } from '@material-ui/core'
+import TextField from '@material-ui/core/TextField'
 import { createCards } from '../../Redux/Action/Actions'
 
 const useStyles = makeStyles(theme => ({
@@ -93,12 +93,11 @@ export const AddCards = () => {
             </Select>
           </FormControl>
           <DialogContentText>
-            <InputLabel id="title">Title</InputLabel>
-            <Input
+            <TextField
+              label="Title"
               autoFocus
               margin="dense"
-              id="title"
-              label="title"
+              id="Title"
               fullWidth
               value={title}
               onChange={handleChangeTitle}
@@ -121,11 +120,6 @@ export const AddCards = () => {
           </Button>
           <Button color="primary">Save</Button>
         </DialogActions>
-        <FormControl>
-          <InputLabel htmlFor="my-input">Email address</InputLabel>
-          <Input id="my-input" aria-describedby="my-helper-text" />
-          <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
-        </FormControl>
       </Dialog>
     </div>
   )
