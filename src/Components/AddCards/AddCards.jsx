@@ -103,12 +103,11 @@ export const AddCards = () => {
               onChange={handleChangeTitle}
             />
           </DialogContentText>
-          <InputLabel id="body">Body</InputLabel>
-          <Input
+          <TextField
             autoFocus
             margin="dense"
-            id="body"
-            label="body"
+            id="Body"
+            label="Body"
             fullWidth
             value={body}
             onChange={handleChangeBody}
