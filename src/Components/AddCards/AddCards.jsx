@@ -62,12 +62,17 @@ export const AddCards = () => {
   }
 
   const onSubmit = () => {
-    dispatch(
-      createCards({
-        title,
-        body,
-      })
-    )
+    if (title && body !== '') {
+      dispatch(
+        createCards({
+          title,
+          body,
+        })
+      )
+      handleClose()
+    } else {
+      alert('Поля не должны быть пустыми')
+    }
   }
 
   return (
