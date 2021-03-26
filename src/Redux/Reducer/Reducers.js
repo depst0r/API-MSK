@@ -1,9 +1,11 @@
+import { combineCards } from '../Action/Actions'
 import {
     CREATE_CARDS,
     COMBINE_CARDS,
     GET_POSTS,
     REMOVE_CARDS,
     GET_USERS,
+    UPDATE_CARDS
 } from '../Action/ActionType'
 
 const initialState = {
@@ -41,6 +43,20 @@ export const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 combineCards: action.payload,
+            }
+        case UPDATE_CARDS:
+            const card = combineCards.find(obj => {
+                return obj.id === action.payload.id
+            })
+            if (card) {
+                card.title = action.payload.title
+                card.body = action.payload.body
+                postMessage.userId = action.payload.userId
+            }
+
+            return {
+                ...state,
+                combineCards: card
             }
         default:
             return state
