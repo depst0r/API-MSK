@@ -47,7 +47,7 @@ export const createCards = ({ title, body, userId }) => {
                 body: JSON.stringify({
                     title,
                     body,
-                    userId
+                    userId: 2
                 }),
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
