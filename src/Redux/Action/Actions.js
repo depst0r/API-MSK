@@ -32,6 +32,7 @@ export const removeCard = (id) => {
     }
 }
 
+
 export const fetchComments = () => {
     return dispatch => {
         fetch(`https://jsonplaceholder.typicode.com/comments/`)
