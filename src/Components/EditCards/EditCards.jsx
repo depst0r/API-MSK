@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const EditCard = () => {
-  console.log('jhjhj')
+export const EditCard = ({ cards }) => {
+  console.log(cards)
   return <></>
 }
