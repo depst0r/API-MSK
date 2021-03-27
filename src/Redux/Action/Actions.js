@@ -59,9 +59,9 @@ export const createCards = ({ title, body, userId }) => {
     }
 }
 
-export const updateCards = ({ title, body, userId }) => {
+export const updateCards = ({ title, body, userId }, id) => {
     return dispatch => {
-        fetch('https://jsonplaceholder.typicode.com/posts/1', {
+        fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
                 method: 'PUT',
                 body: JSON.stringify({
                     title,
@@ -76,5 +76,6 @@ export const updateCards = ({ title, body, userId }) => {
             .then(update => dispatch({ type: UPDATE_CARDS, payload: update }))
     }
 }
+
 
 export const combineCards = arr => ({ type: COMBINE_CARDS, payload: arr })

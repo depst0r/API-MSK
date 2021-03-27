@@ -15,6 +15,7 @@ const initialState = {
 }
 
 export const rootReducer = (state = initialState, action) => {
+    console.log('action.payload', action.payload)
     switch (action.type) {
         case GET_POSTS:
             return {
@@ -41,7 +42,7 @@ export const rootReducer = (state = initialState, action) => {
         case COMBINE_CARDS:
             return {
                 ...state,
-                combineCards: action.payload,
+                combineCards: action.payload
             }
         default:
             return state
