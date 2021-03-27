@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const EditCard = ({ editUser }) => {
-  console.log('editUser', editUser)
+export const EditCard = ({ card }) => {
+  console.log('editUser', card)
   return <></>
 }
