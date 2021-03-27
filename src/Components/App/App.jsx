@@ -4,7 +4,6 @@ import { Cards } from '../Cards/Cards'
 import { AddCards } from '../AddCards/AddCards'
 import { useSelector } from 'react-redux'
 import { Paginate } from '../Paginate/Paginate'
-import { EditCard } from '../EditCards/EditCards'
 
 export const App = () => {
   const selector = useSelector(state => state)
