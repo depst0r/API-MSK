@@ -43,20 +43,6 @@ export const rootReducer = (state = initialState, action) => {
                 ...state,
                 combineCards: action.payload,
             }
-        case UPDATE_CARDS:
-            const card = combineCards.find(obj => {
-                return obj.id === action.payload.id
-            })
-            if (card) {
-                card.title = action.payload.title
-                card.body = action.payload.body
-                postMessage.userId = action.payload.userId
-            }
-
-            return {
-                ...state,
-                combineCards: card
-            }
         default:
             return state
     }

@@ -82,7 +82,7 @@ export const AddCards = () => {
   }
 
   return (
-    <div>
+    <>
       <Button
         variant="contained"
         color="primary"
@@ -143,6 +143,6 @@ export const AddCards = () => {
           </Button>
         </DialogActions>
       </Dialog>
-    </div>
+    </>
   )
 }

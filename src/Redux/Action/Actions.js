@@ -10,20 +10,20 @@ import {
 export const fetchPosts = () => {
     return dispatch => {
         fetch(`https://jsonplaceholder.typicode.com/posts/`)
-            .then((posts) => posts.json())
-            .then((posts) => dispatch({ type: GET_POSTS, payload: posts }))
+            .then(posts => posts.json())
+            .then(posts => dispatch({ type: GET_POSTS, payload: posts }))
     }
 }
 
 export const fetchUsers = () => {
     return dispatch => {
         fetch('https://jsonplaceholder.typicode.com/users')
-            .then((users) => users.json())
-            .then((users) => dispatch({ type: GET_USERS, payload: users }))
+            .then(users => users.json())
+            .then(users => dispatch({ type: GET_USERS, payload: users }))
     }
 }
 
-export const removeCard = (id) => {
+export const removeCard = id => {
     return dispatch => {
         fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
             method: 'DELETE',
