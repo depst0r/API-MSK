@@ -50,8 +50,7 @@ export const Cards = ({ cards }) => {
   }, [selector.posts, selector.users])
 
   const editUser = user => {
-    ;<EditCard editUser={user} />
-    console.log(user)
+    <EditCard editUser={user} />
   }
 
   return (
