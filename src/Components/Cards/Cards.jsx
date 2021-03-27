@@ -53,7 +53,7 @@ export const Cards = ({ cards }) => {
 
   return (
     <>
-    <EditCard card={editCard}/>
+      <EditCard updateСard={editCard} />
       {cards?.map(res => (
         <Card className={classes.root} variant="outlined" key={res.id}>
           <CardContent>
