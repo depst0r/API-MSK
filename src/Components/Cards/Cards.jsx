@@ -7,6 +7,7 @@ import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
+import { EditCard } from '../EditCards/EditCards'
 
 const useStyles = makeStyles({
   root: {
@@ -48,6 +49,11 @@ export const Cards = ({ cards }) => {
     )
   }, [selector.posts, selector.users])
 
+  const editUser = user => {
+    ;<EditCard editUser={user} />
+    console.log(user)
+  }
+
   return (
     <>
       {cards?.map(res => (
@@ -73,7 +79,7 @@ export const Cards = ({ cards }) => {
             <Button size="small" color="secondary" onClick={() => dispatch(removeCard(res.id))}>
               Delet
             </Button>
-            <Button size="small" color="primary">
+            <Button size="small" color="primary" onClick={() => editUser(res)}>
               EDIT
             </Button>
           </CardActions>
