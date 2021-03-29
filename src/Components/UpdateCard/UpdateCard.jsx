@@ -43,12 +43,10 @@ export const UpdateCard = ({ arr }) => {
     setOpen(false)
   }
 
-  console.log(arr)
-
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      <h2 id="simple-modal-title">Text in a modal</h2>
-      <p id="simple-modal-description"></p>
+      <h2 id="simple-modal-title">{arr?.title}</h2>
+      <p id="simple-modal-description">{arr?.id}</p>
     </div>
   )
 
