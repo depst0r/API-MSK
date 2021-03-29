@@ -74,11 +74,11 @@ export const Cards = ({ cards }) => {
             <Button size="small" color="secondary" onClick={() => dispatch(removeCard(res.id))}>
               DELET
             </Button>
-            <Button size="small" color="primary" onClick={() => setCardsArr(res)}>
+            {/* <Button size="small" color="primary" onClick={() => setCardsArr(res)}>
               EDIT
-            </Button>
+            </Button> */}
+            <UpdateCard arr={res} />
           </CardActions>
-          <UpdateCard arr={cardsArr} />
         </Card>
       ))}
     </>

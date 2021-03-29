@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
 import Button from '@material-ui/core/Button'
@@ -45,8 +45,8 @@ export const UpdateCard = ({ arr }) => {
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      <h2 id="simple-modal-title">{arr?.title}</h2>
-      <p id="simple-modal-description">{arr?.id}</p>
+      <h2 id="simple-modal-title">{arr.id}</h2>
+      <p id="simple-modal-description"></p>
     </div>
   )
 
