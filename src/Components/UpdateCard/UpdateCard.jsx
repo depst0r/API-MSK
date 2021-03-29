@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const UpdateCard = ({ res }) => {
-  console.log('res', res)
+export const UpdateCard = ({ arr }) => {
+  console.log('res', arr)
   return <></>
 }

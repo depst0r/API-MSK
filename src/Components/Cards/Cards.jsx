@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchPosts, fetchUsers, removeCard, combineCards } from '../../Redux/Action/Actions'
 import { makeStyles } from '@material-ui/core/styles'
@@ -27,6 +27,8 @@ export const Cards = ({ cards }) => {
 
   const dispatch = useDispatch()
   const selector = useSelector(state => state)
+
+  const [cardsArr, setCardsArr] = useState(null)
 
   useEffect(() => {
     dispatch(fetchPosts())
@@ -72,10 +74,11 @@ export const Cards = ({ cards }) => {
             <Button size="small" color="secondary" onClick={() => dispatch(removeCard(res.id))}>
               DELET
             </Button>
-            <Button size="small" color="primary" onClick={() => <UpdateCard res={res} />}>
+            <Button size="small" color="primary" onClick={() => setCardsArr(res)}>
               EDIT
             </Button>
           </CardActions>
+          <UpdateCard arr={cardsArr} />
         </Card>
       ))}
     </>
