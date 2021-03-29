@@ -7,6 +7,7 @@ import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
+import { UpdateCard } from '../UpdateCard/UpdateCard'
 
 const useStyles = makeStyles({
   root: {
@@ -65,15 +66,13 @@ export const Cards = ({ cards }) => {
             <Typography className={classes.email} color="textSecondary">
               {res.title}
             </Typography>
-            <Typography variant="body2" component="p">
-              {res.body}
-            </Typography>
+            <Typography variant="body2">{res.body}</Typography>
           </CardContent>
           <CardActions>
             <Button size="small" color="secondary" onClick={() => dispatch(removeCard(res.id))}>
-              Delet
+              DELET
             </Button>
-            <Button size="small" color="primary">
+            <Button size="small" color="primary" onClick={() => <UpdateCard res={res} />}>
               EDIT
             </Button>
           </CardActions>

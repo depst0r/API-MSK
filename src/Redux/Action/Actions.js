@@ -7,6 +7,7 @@ import {
     UPDATE_CARDS
 } from './ActionType'
 
+
 export const fetchPosts = () => {
     return dispatch => {
         fetch(`https://jsonplaceholder.typicode.com/posts/`)
