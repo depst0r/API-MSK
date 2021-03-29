@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
 import Button from '@material-ui/core/Button'
+import { Input } from '@material-ui/core'
+import Select from '@material-ui/core/Select'
+import MenuItem from '@material-ui/core/MenuItem'
 
 function rand() {
   return Math.round(Math.random() * 20) - 10
@@ -45,8 +48,11 @@ export const UpdateCard = ({ arr }) => {
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      <h2 id="simple-modal-title">{arr.id}</h2>
-      <p id="simple-modal-description"></p>
+      <h2 id="simple-modal-title">{arr.userId}</h2>
+      <Select labelId="simple-select-label" id="demo-simple-select" value="1">
+        <MenuItem value="1"></MenuItem>
+      </Select>
+      <Input id="simple-modal-description"></Input>
     </div>
   )
 
