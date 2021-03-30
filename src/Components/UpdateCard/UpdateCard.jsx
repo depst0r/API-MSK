@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button'
 import { Input } from '@material-ui/core'
 import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'
+import TextField from '@material-ui/core/TextField'
 
 function rand() {
   return Math.round(Math.random() * 20) - 10
@@ -29,6 +30,12 @@ const useStyles = makeStyles(theme => ({
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
+  },
+  root: {
+    '& .MuiTextField-root': {
+      margin: theme.spacing(1),
+      width: '25ch',
+    },
   },
 }))
 
@@ -56,14 +63,20 @@ export const UpdateCard = ({ arr }) => {
   const body = (
     <div style={modalStyle} className={classes.paper}>
       <h2 id="simple-modal-title">{arr.userId}</h2>
-      <Select labelId="simple-select-label" id="demo-simple-select" value="1">
+      {/* <Select labelId="simple-select-label" id="demo-simple-select" value="1">
         <MenuItem value="1"></MenuItem>
-      </Select>
-      <Input
-        id="simple-modal-description"
-        value={editValue?.id}
-        onChange={e => setEditValue({ ...editValue, id: Number(e.target.value) })}
-      ></Input>
+      </Select> */}
+      <form className={classes.root} noValidate autoComplete="off">
+        <div>
+          <TextField
+            value={editValue?.body}
+            onChange={e => setEditValue({ ...editValue, body: e.target.value })}
+            id="standard-required"
+            label="BODY"
+            defaultValue="Hello World"
+          />
+        </div>
+      </form>
     </div>
   )
 
