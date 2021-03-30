@@ -37,7 +37,7 @@ export const UpdateCard = ({ arr }) => {
 
   const [modalStyle] = useState(getModalStyle)
   const [open, setOpen] = useState(false)
-  const [editValue, setEditValue] = useState(null)
+  const [editValue, setEditValue] = useState('')
 
   const handleOpen = () => {
     setOpen(true)
@@ -47,14 +47,24 @@ export const UpdateCard = ({ arr }) => {
     setOpen(false)
   }
 
+  useEffect(() => {
+    setEditValue(arr)
+  }, [arr])
+
   const body = (
-    <div style={modalStyle} className={classes.paper}>
-      <h2 id="simple-modal-title">{arr.userId}</h2>
-      <Select labelId="simple-select-label" id="demo-simple-select" value="1">
-        <MenuItem value="1"></MenuItem>
-      </Select>
-      <Input id="simple-modal-description"></Input>
-    </div>
+    <form>
+      <div style={modalStyle} className={classes.paper}>
+        <h2 id="simple-modal-title">{arr.userId}</h2>
+        <Select labelId="simple-select-label" id="demo-simple-select" value="1">
+          <MenuItem value="1"></MenuItem>
+        </Select>
+        <Input
+          id="simple-modal-description"
+          value={editValue?.id}
+          onChange={e => setEditValue({ id: e.target.value })}
+        ></Input>
+      </div>
+    </form>
   )
 
   return (
