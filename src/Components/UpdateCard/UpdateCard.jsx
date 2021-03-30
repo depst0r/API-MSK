@@ -37,6 +37,7 @@ export const UpdateCard = ({ arr }) => {
 
   const [modalStyle] = useState(getModalStyle)
   const [open, setOpen] = useState(false)
+  const [editValue, setEditValue] = useState(null)
 
   const handleOpen = () => {
     setOpen(true)
