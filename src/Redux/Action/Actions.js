@@ -33,15 +33,6 @@ export const removeCard = id => {
     }
 }
 
-
-export const fetchComments = () => {
-    return dispatch => {
-        fetch(`https://jsonplaceholder.typicode.com/comments/`)
-            .then((res) => res.json())
-            .then((res) => dispatch({ type: 'getComments', data: res }))
-    }
-}
-
 export const createCards = ({ title, body, userId }) => {
     return dispatch => {
         fetch('https://jsonplaceholder.typicode.com/posts', {
@@ -60,7 +51,7 @@ export const createCards = ({ title, body, userId }) => {
     }
 }
 
-export const updateCards = ({ title, body, userId }, id) => {
+export const updateCards = (title, body, userId, id) => {
     return dispatch => {
         fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
                 method: 'PUT',

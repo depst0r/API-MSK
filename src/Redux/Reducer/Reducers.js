@@ -1,4 +1,3 @@
-import { combineCards } from '../Action/Actions'
 import {
     CREATE_CARDS,
     COMBINE_CARDS,
@@ -43,6 +42,11 @@ export const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 combineCards: action.payload
+            }
+        case UPDATE_CARDS:
+            return {
+                ...state,
+                posts: action.payload
             }
         default:
             return state

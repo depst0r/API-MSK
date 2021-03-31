@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
 import Button from '@material-ui/core/Button'
-import { Input } from '@material-ui/core'
-import Select from '@material-ui/core/Select'
-import MenuItem from '@material-ui/core/MenuItem'
 import TextField from '@material-ui/core/TextField'
+import { updateCards } from '../../Redux/Action/Actions'
 
 function rand() {
   return Math.round(Math.random() * 20) - 10
@@ -47,6 +46,8 @@ export const UpdateCard = ({ arr }) => {
   const [open, setOpen] = useState(false)
   const [editValue, setEditValue] = useState('')
 
+  const dispatch = useDispatch()
+
   const handleOpen = () => {
     setOpen(true)
   }
@@ -63,6 +64,11 @@ export const UpdateCard = ({ arr }) => {
     e.preventDefault()
 
     if (editValue.title && editValue.body !== '') {
+      dispatch(
+        updateCards({
+          editValue,
+        })
+      )
     }
   }
 
