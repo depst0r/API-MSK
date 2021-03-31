@@ -28,6 +28,7 @@ const useStyles = makeStyles(theme => ({
     width: 400,
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #64b5f6',
+    borderColor: '#64b5f6',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
@@ -35,7 +36,6 @@ const useStyles = makeStyles(theme => ({
     '& .MuiTextField-root': {
       margin: theme.spacing(1),
       width: '25ch',
-      height: '25ch',
     },
   },
 }))
@@ -61,19 +61,22 @@ export const UpdateCard = ({ arr }) => {
 
   console.log(editValue)
 
-  const body = (
+  const bodyPopUp = (
     <div style={modalStyle} className={classes.paper}>
-      <h2 id="simple-modal-title">{arr.userId}</h2>
+      <h2 id="simple-modal-title">UPDATE CARD</h2>
       <form className={classes.root} noValidate autoComplete="off">
-        {/* <Select labelId="simple-select-label" id="demo-simple-select" value="1">
-        <MenuItem value="1"></MenuItem>
-      </Select> */}
+        <Select labelId="simple-select-label" id="demo-simple-select" value="1">
+          <MenuItem value="1"></MenuItem>
+        </Select>
+        <TextField
+          value={editValue?.title}
+          onChange={e => setEditValue({ ...editValue, title: e.target.value })}
+          label="TITLE"
+        />
         <TextField
           value={editValue?.body}
           onChange={e => setEditValue({ ...editValue, body: e.target.value })}
-          id="standard-required"
           label="BODY"
-          defaultValue="Hello World"
         />
       </form>
     </div>
@@ -90,7 +93,7 @@ export const UpdateCard = ({ arr }) => {
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
       >
-        {body}
+        {bodyPopUp}
       </Modal>
     </div>
   )
