@@ -59,17 +59,19 @@ export const UpdateCard = ({ arr }) => {
     setEditValue(arr)
   }, [arr])
 
+  const handleSubmit = e => {
+    e.preventDefault()
+
+    if (editValue.title && editValue.body !== '') {
+    }
+  }
+
   console.log(editValue)
 
   const bodyPopUp = (
     <div style={modalStyle} className={classes.paper}>
       <h2 id="simple-modal-title">UPDATE CARD</h2>
-      <form className={classes.root} noValidate autoComplete="off">
-        <div>
-          <Select labelId="simple-select-label" id="demo-simple-select" value="1">
-            <MenuItem value="1"></MenuItem>
-          </Select>
-        </div>
+      <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
         <TextField
           value={editValue?.title}
           onChange={e => setEditValue({ ...editValue, title: e.target.value })}
@@ -80,7 +82,11 @@ export const UpdateCard = ({ arr }) => {
           onChange={e => setEditValue({ ...editValue, body: e.target.value })}
           label="BODY"
         />
-        <Button size="small">Save</Button>
+        <div className="button">
+          <Button size="small" variant="contained" color="primary" type="submit">
+            Save
+          </Button>
+        </div>
       </form>
     </div>
   )
