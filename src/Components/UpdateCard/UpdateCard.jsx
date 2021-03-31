@@ -47,6 +47,7 @@ export const UpdateCard = ({ arr }) => {
   const [editValue, setEditValue] = useState('')
 
   const dispatch = useDispatch()
+  const selector = useSelector(state => state)
 
   const handleOpen = () => {
     setOpen(true)
@@ -65,14 +66,14 @@ export const UpdateCard = ({ arr }) => {
 
     if (editValue.title && editValue.body !== '') {
       dispatch(
-        updateCards({
-          editValue,
+        updateCards(editValue.id, {
+          title: editValue.title,
+          body: editValue.body,
         })
       )
     }
+    console.log()
   }
-
-  console.log(editValue)
 
   const bodyPopUp = (
     <div style={modalStyle} className={classes.paper}>

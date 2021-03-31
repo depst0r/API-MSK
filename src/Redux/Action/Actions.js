@@ -51,14 +51,13 @@ export const createCards = ({ title, body, userId }) => {
     }
 }
 
-export const updateCards = (title, body, userId, id) => {
+export const updateCards = (id, title, body) => {
     return dispatch => {
         fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
                 method: 'PUT',
                 body: JSON.stringify({
                     title,
                     body,
-                    userId
                 }),
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
