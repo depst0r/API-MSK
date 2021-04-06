@@ -46,7 +46,7 @@ export const rootReducer = (state = initialState, action) => {
         case UPDATE_CARDS:
             return {
                 ...state,
-                post: action.payload
+                posts: [action.payload]
             }
         default:
             return state

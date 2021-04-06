@@ -55,7 +55,7 @@ export const updateCards = (id, title, body) => {
     return dispatch => {
         fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
                 method: 'PUT',
-                body: JSON.stringify({ title, body }),
+                body: JSON.stringify(title, body),
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
                 },
