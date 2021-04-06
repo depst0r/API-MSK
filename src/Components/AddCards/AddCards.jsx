@@ -73,6 +73,7 @@ export const AddCards = () => {
         createCards({
           title,
           body,
+          select,
         })
       )
       handleClose()
@@ -105,7 +106,7 @@ export const AddCards = () => {
               onChange={handleChangeSelect}
             >
               {selector?.users?.map(user => (
-                <MenuItem value={user.name} key={user.id}>
+                <MenuItem value={user.id} key={user.id}>
                   {user?.name}
                 </MenuItem>
               ))}

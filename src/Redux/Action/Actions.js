@@ -40,7 +40,7 @@ export const createCards = ({ title, body, userId }) => {
                 body: JSON.stringify({
                     title,
                     body,
-                    userId: 2
+                    userId
                 }),
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
@@ -51,11 +51,11 @@ export const createCards = ({ title, body, userId }) => {
     }
 }
 
-export const updateCards = (id, title, body) => {
+export const updateCards = (id, title, body, userId) => {
     return dispatch => {
         fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
                 method: 'PUT',
-                body: JSON.stringify(title, body),
+                body: JSON.stringify(title, body, userId),
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
                 },
