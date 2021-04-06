@@ -58,6 +58,7 @@ export const updateCards = (id, title, body) => {
                 body: JSON.stringify({
                     title,
                     body,
+                    id
                 }),
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
